@@ -1,0 +1,116 @@
+id: https://ch.paf.link/schema/tutorial
+name: tutorial
+description: |
+  [en] This is a dummy schema for a parliamentary affairs system, including sessions, agenda items, and votes. It is used to demonstrate the use of LinkML for defining data models. In this model, a session contains multiple agenda items and each agenda item can have multiple votes.
+  [de] Dies ist ein Dummy-Schema für ein System von parlamentarischen Angelegenheiten, das Sitzungen, Tagesordnungspunkte und Abstimmungen umfasst. Es wird verwendet, um die Verwendung von LinkML zur Definition von Datenmodellen zu demonstrieren. In diesem Modell enthält eine Sitzung mehrere Tagesordnungspunkte und jeder Tagesordnungspunkt kann mehrere Abstimmungen haben.
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+  prov: http://www.w3.org/ns/prov#
+  dcterm: http://purl.org/dc/terms/
+  linkml: https://w3id.org/linkml/
+  tutorial: https://ch.paf.link/schema/tutorial/
+imports:
+  - linkml:types
+  - schema_dates
+default_prefix: tutorial
+default_range: string
+  
+classes:
+  
+  Session:
+    slots:
+      - id
+      - date_begin_actual
+      - date_end_actual
+      - name
+      - agenda_items
+    
+  AgendaItem:
+    slots:
+      - id
+      - name
+      - votes
+
+  Vote:
+    attributes:
+      is_part_of_agenda_item: # attribute because only vor class Vote relevant
+        range: AgendaItem
+    slots:
+      - id
+      - is_part_of
+      - question
+      - datetime_actual
+      - result
+
+  Container:
+    tree_root: true
+    slots:
+      - id
+      - sessions
+      - agenda_items
+      - votes
+
+  MultilingualString:
+    slots:
+      - text
+      - language
+
+slots:
+  
+  id:
+    identifier: true
+    required: true
+
+  name:
+    slot_uri: schema:name
+    range: MultilingualString
+    multivalued: true
+    inlined_as_list: true
+
+  sessions:
+    slot_uri: tutorial:session
+    range: Session
+    multivalued: true
+    inlined_as_list: true
+  
+  agenda_items:
+    slot_uri: tutorial:agendaItem
+    range: AgendaItem
+    multivalued: true
+    inlined_as_list: true
+  
+  votes:
+    slot_uri: tutorial:vote
+    range: Vote
+    multivalued: true
+    inlined_as_list: true
+
+  question:
+    range: string
+    required: true
+  
+  result:
+    range: result_enum
+
+  text:
+    required: true
+  
+  language:
+    required: true
+    description: |
+      [en] Language code in ISO 639-1 format.
+      [de] Sprachcode im ISO 639-1-Format.
+    pattern: ^[a-z]{2}$
+    slot_uri: dcterm:language
+
+  is_part_of:
+    range: uriorcurie # this will only create literals with xsd:anyURI datatype
+
+enums:
+
+  result_enum:
+    permissible_values:
+      "yes":
+        meaning: tutorial:results/yes
+      "no":
+        meaning: tutorial:results/no
