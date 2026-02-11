@@ -1,46 +1,29 @@
-
-
-# Slot: uri 
-
-
-_[en] Globally valid identifier (e.g., politics.ld.admin.ch/party/1)._
-
-_[de] Global gültiger Identifikator (z.B. politics.ld.admin.ch/party/1)._
-
-__
+# Type: Uri 
 
 
 
 
-
-URI: [act:uri](https://ch.paf.link/schema/actors/uri)
-Alias: uri
-
-<!-- no inheritance hierarchy -->
+_a complete URI_
 
 
 
+URI: [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI)
 
+* [base](https://w3id.org/linkml/base): URI
 
-## Applicable Classes
+* [uri](https://w3id.org/linkml/uri): xsd:anyURI
 
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-| [GroupReference](GroupReference.md) | Reference to a group acting in a specific role |  no  |
-| [PersonReference](PersonReference.md) | Reference to a person acting in a specific role or function |  no  |
-| [Group](Group.md) | [en] A political group, organization, or body (e |  no  |
+* [repr](https://w3id.org/linkml/repr): str
 
 
 
 
 
 
-## Properties
 
-* Range: [Uriorcurie](Uriorcurie.md)
+## Comments
 
-
-
+* in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node
 
 ## Identifier and Mapping Information
 
@@ -65,26 +48,3 @@ Alias: uri
 | native | act:uri |
 
 
-
-
-## LinkML Source
-
-<details>
-```yaml
-name: uri
-description: '[en] Globally valid identifier (e.g., politics.ld.admin.ch/party/1).
-
-  [de] Global gültiger Identifikator (z.B. politics.ld.admin.ch/party/1).
-
-  '
-from_schema: https://ch.paf.link/schema/actors
-rank: 1000
-alias: uri
-domain_of:
-- Group
-- PersonReference
-- GroupReference
-range: uriorcurie
-
-```
-</details>
