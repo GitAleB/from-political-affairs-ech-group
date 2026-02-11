@@ -21,11 +21,11 @@ tutorial:s2025-1 a tutorial:Session ;
 
 tutorial:s2025-1_t1 a tutorial:AgendaItem ;
     schema1:name [ a tutorial:MultilingualString ;
-            dcterm:language "en" ;
-            tutorial:text "Flag Color" ],
-        [ a tutorial:MultilingualString ;
             dcterm:language "de" ;
-            tutorial:text "Fahnenfarbe" ] ;
+            tutorial:text "Fahnenfarbe" ],
+        [ a tutorial:MultilingualString ;
+            dcterm:language "en" ;
+            tutorial:text "Flag Color" ] ;
     tutorial:vote tutorial:s2025-1_t1_a1,
         tutorial:s2025-1_t1_a2 .
 
