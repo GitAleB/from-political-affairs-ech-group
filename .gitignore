@@ -1,3 +1,5 @@
 .local
 .DS_Store
 .venv
+/.dist
+/.local-output
