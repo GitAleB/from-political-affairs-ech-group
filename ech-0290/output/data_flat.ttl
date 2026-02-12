@@ -15,11 +15,11 @@ tutorial:s2025 a tutorial:Container ;
 
 tutorial:s2025-1 a tutorial:Session ;
     schema1:name [ a tutorial:MultilingualString ;
-            dcterm:language "de" ;
-            tutorial:text "Frühlingssession 2025" ],
-        [ a tutorial:MultilingualString ;
             dcterm:language "en" ;
-            tutorial:text "Spring Session 2025" ] ;
+            tutorial:text "Spring Session 2025" ],
+        [ a tutorial:MultilingualString ;
+            dcterm:language "de" ;
+            tutorial:text "Frühlingssession 2025" ] ;
     td:date_begin_actual "2025-03-01"^^xsd:date ;
     td:date_end_actual "2025-04-10"^^xsd:date .
 
@@ -35,11 +35,11 @@ tutorial:s2025-1_t1_a2 a tutorial:Vote ;
 
 tutorial:s2025-2 a tutorial:Session ;
     schema1:name [ a tutorial:MultilingualString ;
-            dcterm:language "de" ;
-            tutorial:text "Sommersession 2025" ],
-        [ a tutorial:MultilingualString ;
             dcterm:language "en" ;
-            tutorial:text "Summer Session 2025" ] ;
+            tutorial:text "Summer Session 2025" ],
+        [ a tutorial:MultilingualString ;
+            dcterm:language "de" ;
+            tutorial:text "Sommersession 2025" ] ;
     td:date_begin_actual "2025-06-01"^^xsd:date ;
     td:date_end_actual "2025-07-10"^^xsd:date .
 
